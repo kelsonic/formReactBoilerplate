@@ -10,15 +10,17 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import Form from 'containers/Form';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <div style={{ textAlign: 'center' }}>
+        <h1>
+          Change a label:
+        </h1>
+        <Form />
+      </div>
     );
   }
 }
