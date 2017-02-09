@@ -22,12 +22,14 @@ export default function createRoutes(store) {
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           import('containers/HomePage'),
+          import('containers/Form/sagas'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([component]) => {
+        importModules.then(([component, formSagas]) => {
           renderRoute(component);
+          injectSagas(formSagas.default);
         });
 
         importModules.catch(errorLoading);
